@@ -78,16 +78,19 @@ fig.update_layout(
     margin=dict(l=10, r=10, t=30, b=10),
     xaxis=dict(color='white'),  
     yaxis=dict(color='white'),  
-    font=dict(color='white')  
+    font=dict(color='white'),
+    
 )
-
-
+fig.update_traces(marker=dict(
+    line=dict(width=2, color='orange')
+))
+fig.update_traces(marker_color='darkred')
 fig.write_html("progress.html")
 
 with open("progress.html", "r") as file:
     html_content = file.read()
 
-background_image_url = "url('mount-doom.jpg')"
+background_image_url = "url('https://github-production-user-asset-6210df.s3.amazonaws.com/100434056/282992812-179e1fc1-f7ab-407b-8035-dea5eb441d12.jpg')"
 
 insertion_point = html_content.find('<body>') + len('<body>')
 
