@@ -10,6 +10,7 @@ import webbrowser
 
 argumentparser = argparse.ArgumentParser(description='Check progress of participants')
 argumentparser.add_argument('--assigned-ips', type=str, help='Input file')
+argumentparser.add_argument('--topic',type=str,help="topic to check progress on")
 
 args = argumentparser.parse_args()
 
@@ -43,7 +44,32 @@ def get_progress(row):
             '/home/user/data/transcriptomics/Mapping_Mtb/Mtb_L4_htseq_count.txt',
         ],
         "microbiome": [
-            '/home/user/data/metagenomics/',
+            '/home/user/data/metagenomics/fastq_abs_paths',
+            '/home/user/data/metagenomics/rooted_tree.qza',
+            '/home/user/data/metagenomics/core-metrics-results/bray_curtis_emperor.qzv',
+            '/home/user/data/metagenomics/taxa_barplot.qzv',
+            '/home/user/data/metagenomics/beta_tests/bray_curtis_significance.qzv'
+        ],
+        "methylation": [
+            '/home/user/data/'
+        ],
+        "third-gen":[
+            '/home/user/data/nanopore_activity/basecalling/fastq/pass/pycoqc_results.html',
+            '/home/user/data/nanopore_activity/mapping/sorted.bam'
+            '/home/user/data/nanopore_activity/variant_calling/depth_statistics',
+            '/home/user/data/nanopore_activity/phylogenetics/zika_all_aligned.fasta',
+            '/home/user/data/nanopore_activity/phylogenetics/figtree/RAxML_bipartitions.zika_phylogeny'
+        ],
+        "phylo":[
+            '/home/user/data/phylogenetics/RAxML_bipartitions.H1N1.flu.2009.ML.tre'
+        ],
+        "gwas":[
+            '/home/user/data/gwas/MD.bed',
+            '/home/user/data/gwas/MD.imiss-vs-het.pdf',
+            '/home/user/data/gwas/MD.IBD-hist.pdf',
+            '/home/user/data/gwas/clean.MD',
+            '/home/user/data/gwas/clean.MD.lmiss.pdf',
+            '/home/user/data/gwas/final.MD.assoc_mhplot.png'
         ]
     }
 
@@ -70,7 +96,7 @@ for row in csv.DictReader(open(args.assigned_ips,encoding='utf-8-sig')):
     for key in progress:
         results[key].append(progress[key])
 
-df = pd.DataFrame(results['rnaseq'])
+df = pd.DataFrame(results[args.topic])
 fig = px.histogram(df, x="coverage",nbins=100,template="simple_white",title="Progress of participants")
 fig.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',  
