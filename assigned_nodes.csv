@@ -1,31 +1,31 @@
-Dummy name,Full Name,Email,Linode,IP
-user00,,,user00,192.53.172.77
-user01,,,user01,192.53.172.215
-user02,,,user02,139.144.121.139
-user03,,,user03,139.162.41.103
-user04,,,user04,139.162.52.14
-user05,,,user05,172.104.54.237
-user06,,,user06,45.118.135.69
-user07,,,user07,172.105.124.107
-user08,,,user08,139.162.24.226
-user09,,,user09,172.105.114.215
-user10,,,user10,192.53.175.132
-user11,,,user11,172.104.33.77
-user12,,,user12,172.104.46.46
-user13,,,user13,139.162.5.74
-user14,,,user14,172.104.34.73
-user15,,,user15,172.104.175.113
-user16,,,user16,172.104.35.145
-user17,,,user17,172.104.165.136
-user18,,,user18,172.105.117.166
-user19,,,user19,170.187.229.86
-user20,,,user20,170.187.227.83
-user21,,,user21,139.162.29.14
-user22,,,user22,139.162.29.22
-user23,,,user23,192.53.116.174
-user24,,,user24,192.53.116.214
-user25,,,user25,139.177.188.102
-spare01,,,user26,139.177.188.135
-spare02,,,user27,139.162.59.181
-spare03,,,user28,139.162.59.210
-spare04,,,user29,139.162.49.44
+Full_Name,Linode,IP,
+Jenifar Quaigun Ami,user00,192.53.172.77,.
+Mobarak Hossein,user01,192.53.172.215,.
+Nishad Tasnim Mithila,user02,139.144.121.139,.
+Mohammad Mehedi Hasen,user03,139.162.41.103,.
+,user04,139.162.52.14,
+Piyush Bhattacharjee,user05,172.104.54.237,.
+Arpita Shyama Deb,user06,45.118.135.69,.
+Sakib Hossain,user07,172.105.124.107,.
+Mahfuzur Rahman,user08,139.162.24.226,.
+Shovan Basak Moon,user09,172.105.114.215,.
+Bikash chaindia chanda,user10,192.53.175.132,.
+Syed jayedul Bashar,user11,172.104.33.77,.
+Anamul Hason,user12,172.104.46.46,.
+,user13,139.162.5.74,
+Prakesh,user14,172.104.34.73,
+Asaduzzaman Asad,user15,172.104.175.113,
+Shoma Hayat,user16,172.104.35.145,
+Shaunik Islam,user17,172.104.165.136,.
+Arko Ayon Choudhury,user18,172.105.117.166,.
+Abu Jaher Nayeem,user19,170.187.229.86,.
+Mostafa shakil,user20,170.187.227.83,.
+Mostafa kamal,user21,139.162.29.14,.
+Abu Rahat,user22,139.162.29.22,.
+Shahriar Islam,user23,192.53.116.174,.
+Tanzir Ahmed shuvo,user24,192.53.116.214,.
+Areken Haider,user25,139.177.188.102,.
+Afsanna Akter Rupa,user26,139.177.188.135,.
+Rumana Nasrin,user27,139.162.59.181,
+Monika Sinha,user28,139.162.59.210,.
+Monjur Rahman,user29,139.162.49.44,

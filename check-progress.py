@@ -6,7 +6,7 @@ import plotly.express as px
 from collections import defaultdict
 import pandas as pd
 import webbrowser
-
+from fabric import Connection
 
 argumentparser = argparse.ArgumentParser(description='Check progress of participants')
 argumentparser.add_argument('--assigned-ips', type=str, help='Input file')
@@ -74,9 +74,13 @@ def get_progress(row):
     }
 
     files_found = set()
-    for l in sp.Popen('ssh user@%s "find /home/user/data -exec du -hs {} \;"' % row['IP'],stdout=sp.PIPE,shell=True).stdout:
-        files_found.add(l.decode().strip().split('\t')[1])
-
+    try:
+        with Connection(row['IP'], user='user') as c:
+            result = c.run('find /home/user/data -exec du -hs {} \;', hide=True)
+            for line in result.stdout.splitlines():
+                files_found.add(line.strip().split('\t')[1])
+    except Exception as e:
+        print(f"Error connecting to {row['IP']}: {e}")
     progress = {}
     for p in files:
         position = 1
@@ -86,13 +90,12 @@ def get_progress(row):
                 break
         file_coverage = len(set(files[p]).intersection(files_found)) / len(files[p])
         position = position/len(files[p])
-        progress[p] = {'name':row['Full Name'],'IP':row['IP'],"complete_position":position,'coverage':file_coverage}
+        progress[p] = {'name':row['Full_Name'],'IP':row['IP'],"complete_position":position,'coverage':file_coverage}
     return progress
 
 results = defaultdict(list)
 for row in csv.DictReader(open(args.assigned_ips,encoding='utf-8-sig')):
     progress = get_progress(row)
-    print(row['Linode'],row['IP'],progress)
     for key in progress:
         results[key].append(progress[key])
 
